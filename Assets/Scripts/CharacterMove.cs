@@ -114,6 +114,7 @@ public class CharacterMove : MonoBehaviour {
 	// 목적지를 설정한다. 인수 destination은 목적지.
 	public void SetDestination(Vector3 destination)
 	{
+        Debug.Log("setDestination : " + destination);
 		arrived = false;
 		this.destination = destination;
 	}
