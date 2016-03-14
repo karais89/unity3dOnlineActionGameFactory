@@ -454,6 +454,10 @@ CharacterController:
   m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!4 &1439637638 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400044, guid: 4e57b2fd9f5fb409ea37f6346c3382fb, type: 3}
+  m_PrefabInternal: {fileID: 1439637635}
 --- !u!114 &1439637639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +473,17 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   walkSpeed: 6
   rotationSpeed: 360
+--- !u!114 &1439637640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1439637636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0987c95e7944f98aa776bf428a4561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1764287729
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +496,7 @@ GameObject:
   - 92: {fileID: 1764287732}
   - 124: {fileID: 1764287731}
   - 81: {fileID: 1764287730}
+  - 114: {fileID: 1764287735}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -555,3 +571,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1764287735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764287729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bab8e379623646c498f1a3288a510bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
+  horizontalAngle: 0
+  rotAngle: 180
+  verticalAngle: 10
+  lockTarget: {fileID: 1439637638}
+  offset: {x: 0, y: 1.5, z: 0}
