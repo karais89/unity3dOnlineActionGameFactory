@@ -29,6 +29,8 @@ public class EnemyCtrl : MonoBehaviour {
 	State state = State.Walking;		// 현재 스테이트.
 	State nextState = State.Walking;	// 다음 스테이트.
 	
+    GameRuleCtrl gameRuleCtrl;
+    
 	// Use this for initialization
 	void Start () {
         status = GetComponent<CharacterStatus>();
@@ -38,6 +40,8 @@ public class EnemyCtrl : MonoBehaviour {
         basePosition = transform.position;
         // 대기 시간.
         waitTime = waitBaseTime;
+        
+        gameRuleCtrl = FindObjectOfType<GameRuleCtrl>();
     }
 	
 	// Update is called once per frame
@@ -173,6 +177,11 @@ public class EnemyCtrl : MonoBehaviour {
         status.died = true;
         dropItem();
         Destroy(gameObject);
+        
+        if(gameObject.tag == "Boss")
+        {
+            gameRuleCtrl.GameClear();
+        }
     }
 	
 	void Damage(AttackArea.AttackInfo attackInfo)

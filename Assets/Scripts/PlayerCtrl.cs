@@ -24,12 +24,15 @@ public class PlayerCtrl : MonoBehaviour
     // 다음 스테이트.
     State nextState = State.Walking;
     
+    GameRuleCtrl gameRuleCtrl;
+    
 	// Use this for initialization
 	void Start () 
     {
         status = GetComponent<CharacterStatus>();
         charAnimation = GetComponent<CharaAnimation>();
-        inputManager = FindObjectOfType<InputManager>();	
+        inputManager = FindObjectOfType<InputManager>();
+        gameRuleCtrl = FindObjectOfType<GameRuleCtrl>();	
     }
 	
 	// Update is called once per frame
@@ -136,6 +139,7 @@ public class PlayerCtrl : MonoBehaviour
     void Died()
     {
         status.died = true;
+        gameRuleCtrl.GameOver();
     }
     
     void Damage(AttackArea.AttackInfo attackInfo)
