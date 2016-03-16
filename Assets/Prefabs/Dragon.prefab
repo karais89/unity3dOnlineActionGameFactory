@@ -357,7 +357,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464190}
-  m_Layer: 0
+  - 135: {fileID: 13581800}
+  - 54: {fileID: 5483918}
+  - 114: {fileID: 11414986}
+  m_Layer: 11
   m_Name: HAND_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +691,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 472066}
   - 137: {fileID: 13781816}
-  m_Layer: 0
+  - 65: {fileID: 6535872}
+  - 54: {fileID: 5477312}
+  - 114: {fileID: 11478626}
+  m_Layer: 9
   m_Name: LOWDRG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1376,6 +1382,48 @@ Transform:
   - {fileID: 490212}
   m_Father: {fileID: 423178}
   m_RootOrder: 1
+--- !u!54 &5477312
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196600}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &5483918
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158104}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6535872
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196600}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.60000002, y: 3.5999999, z: 4.30000019}
+  m_Center: {x: 0, y: 1.29999995, z: -.899999976}
 --- !u!95 &9561530
 Animator:
   serializedVersion: 3
@@ -1393,6 +1441,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11414986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653ee32e42fe547909a70f6e9a21bff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11458974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1426,6 +1485,29 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   walkSpeed: .5
   rotationSpeed: 45
+--- !u!114 &11478626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd4dc1c614bb4866ac125a852ce57b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &13581800
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &13781816
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

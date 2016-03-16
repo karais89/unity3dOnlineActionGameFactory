@@ -136,6 +136,8 @@ GameObject:
   - 114: {fileID: 11457868}
   - 114: {fileID: 11451612}
   - 114: {fileID: 11468222}
+  - 114: {fileID: 11470670}
+  - 114: {fileID: 11475666}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -168,7 +170,10 @@ GameObject:
   - 4: {fileID: 433636}
   - 33: {fileID: 3335240}
   - 23: {fileID: 2334952}
-  m_Layer: 0
+  - 136: {fileID: 13685540}
+  - 54: {fileID: 5406680}
+  - 114: {fileID: 11478752}
+  m_Layer: 12
   m_Name: Sword01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +293,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 427254}
-  m_Layer: 0
+  - 65: {fileID: 6571420}
+  - 54: {fileID: 5493924}
+  - 114: {fileID: 11464990}
+  m_Layer: 10
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,6 +1227,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100710}
   m_Mesh: {fileID: 4300000, guid: 4e57b2fd9f5fb409ea37f6346c3382fb, type: 3}
+--- !u!54 &5406680
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136618}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &5493924
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148298}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6571420
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.70000005, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9518302
 Animator:
   serializedVersion: 3
@@ -1228,7 +1278,7 @@ Animator:
   m_GameObject: {fileID: 130350}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4e57b2fd9f5fb409ea37f6346c3382fb, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3f5d5961f70c40f6bd9b0e9c983101d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1247,6 +1297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0987c95e7944f98aa776bf428a4561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 1.5
 --- !u!114 &11457868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1262,6 +1313,17 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   walkSpeed: 6
   rotationSpeed: 360
+--- !u!114 &11464990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd4dc1c614bb4866ac125a852ce57b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11468222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1280,6 +1342,52 @@ MonoBehaviour:
   characterName: Player
   attacking: 0
   died: 0
+--- !u!114 &11470670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed6cdd960dc1441f8da91675d827b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11475666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415c13620fcf0415c821763d35664752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11478752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653ee32e42fe547909a70f6e9a21bff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &13685540
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .200000003
+  m_Height: 1
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: .579999983}
 --- !u!137 &13701558
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
