@@ -135,6 +135,8 @@ GameObject:
   - 114: {fileID: 11477990}
   - 114: {fileID: 11463604}
   - 114: {fileID: 11492068}
+  - 114: {fileID: 11414438}
+  - 114: {fileID: 11484264}
   m_Layer: 0
   m_Name: Warg
   m_TagString: Untagged
@@ -272,6 +274,23 @@ GameObject:
   - 4: {fileID: 407168}
   m_Layer: 0
   m_Name: FOREARM_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &163966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 457210}
+  - 135: {fileID: 13570412}
+  - 114: {fileID: 11478676}
+  m_Layer: 0
+  m_Name: SearchAreaCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -823,6 +842,7 @@ Transform:
   m_Children:
   - {fileID: 478908}
   - {fileID: 440392}
+  - {fileID: 457210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &439678
@@ -967,6 +987,18 @@ Transform:
   - {fileID: 440880}
   m_Father: {fileID: 407168}
   m_RootOrder: 0
+--- !u!4 &457210
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 434466}
+  m_RootOrder: 2
 --- !u!4 &460502
 Transform:
   m_ObjectHideFlags: 1
@@ -1203,6 +1235,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653ee32e42fe547909a70f6e9a21bff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11414438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef823713b98e74e76840e8bd54e4e3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitBaseTime: 2
+  walkRange: 5
+  basePosition: {x: 0, y: 0, z: 0}
+  dropItemPrefab:
+  - {fileID: 118298, guid: b36de95a311e947ae96dbfdb7dbe369d, type: 2}
+  - {fileID: 169548, guid: 6e7824f31adf044229cb043e5c256894, type: 2}
 --- !u!114 &11421862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1232,6 +1281,7 @@ MonoBehaviour:
   characterName: Wrag
   attacking: 0
   died: 0
+  powerBoost: 0
 --- !u!114 &11477990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,6 +1297,28 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   walkSpeed: 8
   rotationSpeed: 360
+--- !u!114 &11478676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba772e435dfa4d11859ad1927d3a271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11484264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed6cdd960dc1441f8da91675d827b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11492068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1270,6 +1342,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: .300000012, z: 0}
+--- !u!135 &13570412
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &13734582
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1502,9 +1586,21 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: dropItemPrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d4dd5d8b4073b4d3eaf601f2458a84e8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: dropItemPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 118298, guid: b36de95a311e947ae96dbfdb7dbe369d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: dropItemPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 169548, guid: 6e7824f31adf044229cb043e5c256894, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137566}

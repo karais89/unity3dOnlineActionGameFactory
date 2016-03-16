@@ -25,6 +25,11 @@ public class AttackArea : MonoBehaviour
         AttackInfo attackInfo = new AttackInfo();
         // 공격력 계산.
         attackInfo.attackPower = status.Power;
+        
+        // 공격 강화 중.
+        if(status.powerBoost)
+            attackInfo.attackPower += attackInfo.attackPower;
+        
         attackInfo.attacker = transform.root;
         
         return attackInfo;
@@ -42,12 +47,14 @@ public class AttackArea : MonoBehaviour
     // 공격 판정을 유효로 한다.
     void OnAttack()
     {
+        Debug.Log("AttackArea OnAttack");
         GetComponent<Collider>().enabled = true;
     }
     
     // 공격 판정을 무효로 한다.
     void OnAttackTermination()
     {
+        Debug.Log("AttackArea OnAttackTermination");
         GetComponent<Collider>().enabled = false;
     }
 }
