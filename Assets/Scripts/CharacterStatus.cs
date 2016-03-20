@@ -30,16 +30,28 @@ public class CharacterStatus : MonoBehaviour
     // 공격력 강화 시간
     float powerBoostTime = 0.0f;
     
+    ParticleSystem powerUpEffect;
+    
     public void GetItem(DropItem.ItemKind itemKind)
     {
         switch (itemKind)
         {
             case DropItem.ItemKind.Attack:
             powerBoostTime = 5.0f;
+            if(powerUpEffect)
+                powerUpEffect.Play();
             break;
             case DropItem.ItemKind.Heal:
             HP = Mathf.Min(HP + MaxHP / 2, MaxHP);
             break;
+        }
+    }
+    
+    void Start()
+    {
+        if(gameObject.tag == "Player")
+        {
+            powerUpEffect = transform.Find("PowerUpEffect").GetComponent<ParticleSystem>();
         }
     }
     
@@ -50,6 +62,11 @@ public class CharacterStatus : MonoBehaviour
         {
             powerBoost = true;
             powerBoostTime = Mathf.Max(powerBoostTime - Time.deltaTime, 0.0f);
+        }
+        else
+        {
+            if(powerUpEffect)
+                powerUpEffect.Stop();
         }
     }
     

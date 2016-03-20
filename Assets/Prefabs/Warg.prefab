@@ -1252,6 +1252,7 @@ MonoBehaviour:
   dropItemPrefab:
   - {fileID: 118298, guid: b36de95a311e947ae96dbfdb7dbe369d, type: 2}
   - {fileID: 169548, guid: 6e7824f31adf044229cb043e5c256894, type: 2}
+  hitEffect: {fileID: 134638, guid: e4827a151522243ee8176f98304a2d69, type: 2}
 --- !u!114 &11421862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1601,6 +1602,10 @@ Prefab:
       propertyPath: dropItemPrefab.Array.data[1]
       value: 
       objectReference: {fileID: 169548, guid: 6e7824f31adf044229cb043e5c256894, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 134638, guid: e4827a151522243ee8176f98304a2d69, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137566}

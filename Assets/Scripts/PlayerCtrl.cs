@@ -26,6 +26,9 @@ public class PlayerCtrl : MonoBehaviour
     
     GameRuleCtrl gameRuleCtrl;
     
+    public GameObject hitEffect;
+    TargetCursor targetCursor;
+    
 	// Use this for initialization
 	void Start () 
     {
@@ -33,6 +36,9 @@ public class PlayerCtrl : MonoBehaviour
         charAnimation = GetComponent<CharaAnimation>();
         inputManager = FindObjectOfType<InputManager>();
         gameRuleCtrl = FindObjectOfType<GameRuleCtrl>();	
+        
+        targetCursor = FindObjectOfType<TargetCursor>();
+        targetCursor.SetPosition(transform.position);
     }
 	
 	// Update is called once per frame
@@ -91,8 +97,10 @@ public class PlayerCtrl : MonoBehaviour
             {
                 // 지면이 클릭되었다.
                 if(hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
                     SendMessage("SetDestination", hitInfo.point);
-                    
+                    targetCursor.SetPosition(hitInfo.point);
+                }   
                 // 적이 클릭되었다.
                 if(hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("EnemyHit"))
                 {
@@ -104,11 +112,13 @@ public class PlayerCtrl : MonoBehaviour
                     {
                         // 공격.
                         attackTarget = hitInfo.collider.transform;
+                        targetCursor.SetPosition(attackTarget.position);
                         ChangeState(State.Attacking);
                     }
                     else
                     {
                         SendMessage("SetDestination", hitInfo.point);
+                        targetCursor.SetPosition(hitInfo.point);
                     }
                 }
             }
@@ -144,6 +154,11 @@ public class PlayerCtrl : MonoBehaviour
     
     void Damage(AttackArea.AttackInfo attackInfo)
     {
+        GameObject effect = Instantiate(hitEffect, transform.position,
+                                Quaternion.identity) as GameObject;
+        effect.transform.localPosition = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
+        Destroy(effect, 0.3f);
+        
         status.HP -= attackInfo.attackPower;
         if(status.HP <= 0)
         {
