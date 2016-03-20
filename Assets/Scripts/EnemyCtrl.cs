@@ -31,6 +31,8 @@ public class EnemyCtrl : MonoBehaviour {
 	
     GameRuleCtrl gameRuleCtrl;
     
+    public AudioClip deathSeClip;
+    
 	// Use this for initialization
 	void Start () {
         status = GetComponent<CharacterStatus>();
@@ -182,6 +184,8 @@ public class EnemyCtrl : MonoBehaviour {
         {
             gameRuleCtrl.GameClear();
         }
+        
+        AudioSource.PlayClipAtPoint(deathSeClip, transform.position);
     }
 	
     public GameObject hitEffect;

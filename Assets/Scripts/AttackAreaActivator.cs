@@ -6,6 +6,9 @@ public class AttackAreaActivator : MonoBehaviour
     // 공격 판정 컬라이더 배열.
     Collider[] attackAreaColliders;
     
+    public AudioClip attackSeClip;
+    AudioSource attackSeAudio;
+    
 	// Use this for initialization
 	void Start () 
     {
@@ -20,12 +23,19 @@ public class AttackAreaActivator : MonoBehaviour
             // 초기값을 false로 한다.
             attackAreaColliders[attackAreaCnt].enabled = false;
         }
+        
+        // 오디오 초기화.
+        attackSeAudio = gameObject.AddComponent<AudioSource>();
+        attackSeAudio.clip = attackSeClip;
+        attackSeAudio.loop = false;
 	}
 	
     void StartAttackHit()
     {
         foreach(Collider attackAreaCollider in attackAreaColliders)
             attackAreaCollider.enabled = true;
+            
+            attackSeAudio.Play();
     }
     
     void EndAttackHit()

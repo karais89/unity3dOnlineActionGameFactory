@@ -1235,6 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653ee32e42fe547909a70f6e9a21bff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSeClip: {fileID: 8300000, guid: 87213bb55a66b4974b566dc19b8b831a, type: 3}
 --- !u!114 &11414438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1252,6 +1253,7 @@ MonoBehaviour:
   dropItemPrefab:
   - {fileID: 118298, guid: b36de95a311e947ae96dbfdb7dbe369d, type: 2}
   - {fileID: 169548, guid: 6e7824f31adf044229cb043e5c256894, type: 2}
+  deathSeClip: {fileID: 8300000, guid: 114b031c6f2ba47c5866e4cbab91ba53, type: 3}
   hitEffect: {fileID: 134638, guid: e4827a151522243ee8176f98304a2d69, type: 2}
 --- !u!114 &11421862
 MonoBehaviour:
@@ -1331,6 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415c13620fcf0415c821763d35664752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSeClip: {fileID: 8300000, guid: 70e0625c480614a66859b821e87455d6, type: 3}
 --- !u!135 &13511268
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1606,6 +1609,14 @@ Prefab:
       propertyPath: hitEffect
       value: 
       objectReference: {fileID: 134638, guid: e4827a151522243ee8176f98304a2d69, type: 2}
+    - target: {fileID: 0}
+      propertyPath: attackSeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 70e0625c480614a66859b821e87455d6, type: 3}
+    - target: {fileID: 0}
+      propertyPath: deathSeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 114b031c6f2ba47c5866e4cbab91ba53, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137566}

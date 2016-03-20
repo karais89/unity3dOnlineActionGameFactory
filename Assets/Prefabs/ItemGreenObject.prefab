@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69b8927ab84b42179dcbfb356039bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kind: 0
+  itemSeClip: {fileID: 8300000, guid: da56e58e25d5a432e89f1ba15f4e17c3, type: 3}
+  kind: 1
 --- !u!135 &13527230
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -170,6 +171,14 @@ Prefab:
       propertyPath: m_Radius
       value: .600000024
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: itemSeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: da56e58e25d5a432e89f1ba15f4e17c3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118298}

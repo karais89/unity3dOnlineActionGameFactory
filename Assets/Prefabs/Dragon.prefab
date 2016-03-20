@@ -194,6 +194,7 @@ GameObject:
   - 114: {fileID: 11458974}
   - 114: {fileID: 11449786}
   - 114: {fileID: 11488894}
+  - 114: {fileID: 11436376}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Boss
@@ -1484,6 +1485,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653ee32e42fe547909a70f6e9a21bff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSeClip: {fileID: 8300000, guid: 87213bb55a66b4974b566dc19b8b831a, type: 3}
+--- !u!114 &11436376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415c13620fcf0415c821763d35664752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSeClip: {fileID: 8300000, guid: 70e0625c480614a66859b821e87455d6, type: 3}
 --- !u!114 &11438262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1512,6 +1526,7 @@ MonoBehaviour:
   dropItemPrefab:
   - {fileID: 118298, guid: b36de95a311e947ae96dbfdb7dbe369d, type: 2}
   - {fileID: 169548, guid: 6e7824f31adf044229cb043e5c256894, type: 2}
+  deathSeClip: {fileID: 8300000, guid: 592e9686c276b40c88d21a25b257d6b7, type: 3}
   hitEffect: {fileID: 134638, guid: e4827a151522243ee8176f98304a2d69, type: 2}
 --- !u!114 &11458974
 MonoBehaviour:
@@ -1726,6 +1741,14 @@ Prefab:
       propertyPath: hitEffect
       value: 
       objectReference: {fileID: 134638, guid: e4827a151522243ee8176f98304a2d69, type: 2}
+    - target: {fileID: 0}
+      propertyPath: attackSeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 70e0625c480614a66859b821e87455d6, type: 3}
+    - target: {fileID: 0}
+      propertyPath: deathSeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 592e9686c276b40c88d21a25b257d6b7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121006}

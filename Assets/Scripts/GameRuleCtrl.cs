@@ -10,6 +10,16 @@ public class GameRuleCtrl : MonoBehaviour
     // 씬 이행 시간.
     public float sceneChangeTime = 3.0f;
     
+    public AudioClip clearSeClip;
+    AudioSource clearSeAudio;
+    
+    void Start()
+    {
+        clearSeAudio = gameObject.AddComponent<AudioSource>();
+        clearSeAudio.loop = false;
+        clearSeAudio.clip = clearSeClip;
+    }
+    
 	// Update is called once per frame
 	void Update () 
     {
@@ -43,5 +53,7 @@ public class GameRuleCtrl : MonoBehaviour
     {
         gameClear = true;
         Debug.Log("GameClear");
+        
+        clearSeAudio.Play();
     }
 }

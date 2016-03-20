@@ -29,6 +29,9 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject hitEffect;
     TargetCursor targetCursor;
     
+    public AudioClip deathSeClip;
+    AudioSource deathSeAudio;
+    
 	// Use this for initialization
 	void Start () 
     {
@@ -39,6 +42,11 @@ public class PlayerCtrl : MonoBehaviour
         
         targetCursor = FindObjectOfType<TargetCursor>();
         targetCursor.SetPosition(transform.position);
+        
+        // 오디오 초기화한다
+        deathSeAudio = gameObject.AddComponent<AudioSource>();
+        deathSeAudio.loop = false;
+        deathSeAudio.clip = deathSeClip;
     }
 	
 	// Update is called once per frame
@@ -150,6 +158,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         status.died = true;
         gameRuleCtrl.GameOver();
+        deathSeAudio.Play();
     }
     
     void Damage(AttackArea.AttackInfo attackInfo)

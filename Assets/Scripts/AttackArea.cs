@@ -4,11 +4,18 @@ using System.Collections;
 public class AttackArea : MonoBehaviour 
 {
     CharacterStatus status;
+    
+    public AudioClip hitSeClip;
+    AudioSource hitSeAudio;
 
 	// Use this for initialization
 	void Start () 
     {
         status = transform.root.GetComponent<CharacterStatus>();	    
+        
+        hitSeAudio = gameObject.AddComponent<AudioSource>();
+        hitSeAudio.clip = hitSeClip;
+        hitSeAudio.loop = false;
 	}
 	
     public class AttackInfo
@@ -42,6 +49,8 @@ public class AttackArea : MonoBehaviour
         other.SendMessage("Damage", GetAttackInfo());
         // 공격한 대상을 저장한다.
         status.lastAttackTarget = other.transform.root.gameObject;
+        
+        hitSeAudio.Play();
     }
     
     // 공격 판정을 유효로 한다.

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DropItem : MonoBehaviour 
 {
+    
+    public AudioClip itemSeClip;
     public enum ItemKind
     {
         Attack,
@@ -25,6 +27,8 @@ public class DropItem : MonoBehaviour
             aStatus.GetItem(kind);
             
             Destroy(gameObject);
+            
+            AudioSource.PlayClipAtPoint(itemSeClip, transform.position);
         }
     }
 }
